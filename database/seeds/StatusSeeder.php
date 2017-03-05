@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Status;
 
 class StatusSeeder extends Seeder
 {
@@ -19,7 +20,7 @@ class StatusSeeder extends Seeder
         ];
         
         foreach($availableStatus as $status){
-            \App\Status::create([
+            Status::create([
                 'description' => $status
             ]);
         }

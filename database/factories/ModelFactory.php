@@ -13,6 +13,8 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
+use App\User;
+
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
     
@@ -26,28 +28,25 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Post::class, function(Faker\Generator $faker){
     
-    \DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+    $status = \App\Status::pluck('id')->toArray();
     
-    \DB::table('users')->truncate();
+    $users = \App\User::pluck('id')->toArray();
     
-    \DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-    
-    $status = App\Status::all()->toArray();
-    factory('App\User', 25)
-        ->create()
-        ->each(function($user) use ($status, $faker) {
-            
-            for($i = 0; $i<rand(1, 5) ; $i++){
-                $post = $user->post()->create([
-                    'title' => $faker->sentence(rand(1, 5), true),
-                    'body' => $faker->paragraph(rand(1, 5), true),
-                    'status_id' => $faker->unique()->randomElement($status),
-                ]);
-                
-                $post->comment()->create([
-                    'body' => $faker->paragraph(rand(1, 2), true),
-                ]);
-            }
-            
-        });
+    return [
+        'title' => $faker->sentence(4, true),
+        'body' => $faker->text,
+        'status_id' => $faker->randomElement($status),
+        'user_id' => $faker->randomElement($users),
+    ];
 });
+
+$factory->define(App\Comment::class, function(Faker\Generator $faker){
+    
+    $posts = \App\Post::pluck('id')->toArray();
+    
+    return [
+        'body' => $faker->text,
+        'post_id' => $faker->randomElement($posts),
+    ];
+});
+
