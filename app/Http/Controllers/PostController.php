@@ -14,7 +14,10 @@ class PostController extends Controller
      */
     public function index()
     {
+        $posts = Post::all();
         
+        //dd($posts->toArray());
+        return view('app-post.index', compact($posts));
     }
 
     /**
