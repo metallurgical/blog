@@ -16,8 +16,10 @@ class PostController extends Controller
     {
         $posts = Post::all();
         
-        //dd($posts->toArray());
-        return view('app-post.index', compact($posts));
+        $post = $posts->where('id', 9)->first();
+        dd($post->comments->toArray());
+        
+        return view('app-post.index', compact('posts'));
     }
 
     /**

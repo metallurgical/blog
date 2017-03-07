@@ -1,17 +1,27 @@
 @extends('master')
 
-@section('master-content')
+@section('master-content-title')
 
-    <div class="content-wrapper">
+    Title
 
-        <section class="content-header">
-            abc
-        </section>
+@stop
 
-        <section class="content">
+@section('master-content-body')
 
-        </section>
+    @foreach($posts as $post)
 
-    </div>
+        <div class="box">
+
+            @include('app-post.box-header')
+
+            @include('app-post.box-body')
+
+            @include('app-post.box-comment')
+
+            @include('app-post.box-footer')
+
+        </div>
+
+    @endforeach
 
 @stop
