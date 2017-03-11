@@ -50,3 +50,13 @@ $factory->define(App\Comment::class, function(Faker\Generator $faker){
     ];
 });
 
+
+$factory->define(App\Todo::class, function(Faker\Generator $faker){
+    
+    return [
+        'title' => $faker->sentence(4, true),
+        'body' => $faker->text,
+        'completed' => false
+    ];
+});
+

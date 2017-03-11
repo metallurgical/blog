@@ -23,13 +23,13 @@
 
         <div class="wrapper">
 
-            @include('layout.header.navbar')
+            {{--@include('layout.header.navbar')--}}
 
             {{--@include('layout.sidebar.sidebar')--}}
 
             @include('layout.body.content')
 
-            @include('layout.footer.footer')
+            {{--@include('layout.footer.footer')--}}
 
         </div>
 
@@ -38,6 +38,7 @@
     <script src="/js/plugins/jQuery/jquery-2.2.3.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/app.min.js"></script>
-    <script src="/js/myJs.js"></script>
+
+    @stack('scripts')
 
 </html>
