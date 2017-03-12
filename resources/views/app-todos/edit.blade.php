@@ -8,7 +8,7 @@
             <h3 class="box-title">Edit Todo : {{ $todo->title }}</h3>
         </div>
 
-        @include('layout.errors')
+        @include('layout.errors.errors')
 
         <div class="box-body">
 

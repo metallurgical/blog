@@ -23,7 +23,7 @@
 
         <div class="wrapper">
 
-            @include('layout.header.navbar')
+            @include('layout.header.header')
 
             @include('layout.body.content')
 
