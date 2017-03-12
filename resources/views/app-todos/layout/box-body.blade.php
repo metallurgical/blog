@@ -9,7 +9,7 @@
             </div>
 
             <div class="col-xs-2">
-                <div class="box-tools">
+                <div class="box-tools pull-right">
 
                     @if(!$todo->completed)
                         <button class="btn btn-box-tool btn-delete" id="delete-{{ $todo->id }}">

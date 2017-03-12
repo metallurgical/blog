@@ -5,8 +5,10 @@
     <div class="box box-info">
 
         <div class="box-header with-border">
-            <h3 class="box-title">Horizontal Form</h3>
+            <h3 class="box-title">Create Todo</h3>
         </div>
+
+        @include('layout.errors')
 
         <form class="form-horizontal" action="/todos" method="POST">
             <div class="box-body">
