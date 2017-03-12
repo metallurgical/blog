@@ -23,13 +23,11 @@
 
         <div class="wrapper">
 
-            {{--@include('layout.header.navbar')--}}
-
-            {{--@include('layout.sidebar.sidebar')--}}
+            @include('layout.header.navbar')
 
             @include('layout.body.content')
 
-            {{--@include('layout.footer.footer')--}}
+            @include('layout.footer.footer')
 
         </div>
 

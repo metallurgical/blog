@@ -13,8 +13,6 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\User;
-
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
     
@@ -25,31 +23,6 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
-
-$factory->define(App\Post::class, function(Faker\Generator $faker){
-    
-    $status = \App\Status::pluck('id')->toArray();
-    
-    $users = \App\User::pluck('id')->toArray();
-    
-    return [
-        'title' => $faker->sentence(4, true),
-        'body' => $faker->text,
-        'status_id' => $faker->randomElement($status),
-        'user_id' => $faker->randomElement($users),
-    ];
-});
-
-$factory->define(App\Comment::class, function(Faker\Generator $faker){
-    
-    $posts = \App\Post::pluck('id')->toArray();
-    
-    return [
-        'body' => $faker->text,
-        'post_id' => $faker->randomElement($posts),
-    ];
-});
-
 
 $factory->define(App\Todo::class, function(Faker\Generator $faker){
     
